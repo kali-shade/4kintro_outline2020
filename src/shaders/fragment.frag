@@ -53,7 +53,7 @@ float de(vec3 p) {
 	vec3 p3=fract(id.xyx * vec3(.1031, .1030, .0973));
     p3+=dot(p3, p3.yxz+33.33);
 
-    fcol = ( scene==3 ? max(.2,sin(id.y+id.x)) * vec3(0,.3,2) : .2+h*no(fract((p3.xxy+p3.yzz)*p3.zyx))*.7 )
+    fcol = ( scene==3 ? max(.2,sin(id.y+id.x)) * vec3(0,.3,2) : .2+h*no(fract((p3.xxy+p3.yzz)*p3.zyx))*.9 )
            + fract(id.y*.5+id.x*.5) *step(96.,iT);
     p = vec3( fract(pz*2.)-.5 , length(p.xy)-ap , fract(a)-.5 );
 //  p.yz *= ro( (is(0)+is(1))*3.*sm(.5,1.,-sin(gt*1.1+pz*.07)) + z*is(4)+(sin(p.z+gt))*is(3)*.1);
@@ -118,11 +118,11 @@ void main()
 
 	float dp0=1.,dp1=.8,dp2=.9,dp=1.0;
     gt=iT;
-    if (iT > 25.5) scene = 1, dp0 = 1.65, dp1 = -0.6, dp2 = 1.0;
+    if (iT > 25.) scene = 1, dp0 = 1.65, dp1 = -0.6, dp2 = 1.0;
 	if (iT > 35.) scene = 0, dp0 = 1.0,dp1=0.8,dp2=0.9;
 	if (iT > 45.5) scene = 2, dp0 = 1.1, dp1 = 8.0, dp2 = 0.8;
-	if (iT > 56.) scene = 0, dp0 = 1.0,dp1=0.8,dp2=0.9;
-	if (iT > 66.) scene = 3, dp0 = 0.7, dp1 = 1.1, dp2 = 0.7;
+	if (iT > 55.5) scene = 0, dp0 = 1.0,dp1=0.8,dp2=0.9;
+	if (iT > 65.5) scene = 3, dp0 = 0.7, dp1 = 1.1, dp2 = 0.7;
 	if (iT > 96.) scene = 0, dp0 = 1.0,dp1=0.8,dp2=0.9;
 	if (iT > 116.) scene = 4, dp0 = 0.4, dp1 = -1.0, dp2 = -0.4;
 	if (iT > 126.5) scene = 1, dp0 = 1.65, dp1 = -0.6, dp2 = 1.0;
